@@ -37,7 +37,15 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <img src="hero.png" alt="Melody & Trevor" class="hero-image">
+        <button class="heart-btn" id="heartBtn">
+            <span class="heart-icon"><!--img src="heartBtn.png" alt="heart" class="heart-icon-img"-->💖</span>
+        </button>
     </section>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <span id="toastMessage">Address copied to clipboard!</span>
+    </div>
 
     <!-- Main Content -->
     <main class="main-content">
@@ -66,7 +74,7 @@
                     <p class="timeline-time">11:00</p>
                 </div>
                 <div class="timeline-item">
-                    <p class="timeline-label" data-zh="證婚儀式" data-en="Ceremony">證婚儀式</p
+                    <p class="timeline-label" data-zh="證婚儀式" data-en="Ceremony">證婚儀式</p>
                     <!--span class="timeline-separator">•</span-->
                     <p class="timeline-time">12:30</p>
                 </div>
@@ -97,7 +105,12 @@
                         class="google-map">
                     </iframe>
                 </div>
-                <p class="venue-address" data-zh="AutoCamper 沙頭角公路石浦凹段39號" data-en="AutoCamper, No. 39 Shek Po Au Section, Sha Tau Kok Road">AutoCamper 沙頭角公路石浦凹段39號</p>
+                <div class="venue-address-container">
+                    <p class="venue-address" id="venueAddress" data-zh="AutoCamper 沙頭角公路石浦凹段39號" data-en="AutoCamper, No. 39 Shek Po Au Section, Sha Tau Kok Road">AutoCamper 沙頭角公路石浦凹段39號</p>
+                    <button class="copy-btn" id="copyAddressBtn" title="Copy address">
+                        <span class="copy-icon">📄</span>
+                    </button>
+                </div>
                 <p class="venue-type" data-zh="(戶外草地)" data-en="(Outdoor Lawn)">(戶外草地)</p>
             </div>
         </section>

@@ -140,5 +140,95 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', handleScroll);
     // Check initial scroll position
     handleScroll();
+    
+    // Copy address button functionality with toast notification
+    const copyAddressBtn = document.getElementById('copyAddressBtn');
+    const venueAddress = document.getElementById('venueAddress');
+    const toast = document.getElementById('toast');
+    const toastMessage = document.getElementById('toastMessage');
+    
+    function showToast(message) {
+        if (toast && toastMessage) {
+            // Update toast message based on current language
+            const toastText = currentLang === 'zh' 
+                ? '地址已複製到剪貼板！' 
+                : 'Address copied to clipboard!';
+            toastMessage.textContent = message || toastText;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2000);
+        }
+    }
+    
+    if (copyAddressBtn && venueAddress) {
+        copyAddressBtn.addEventListener('click', async () => {
+            const textToCopy = venueAddress.textContent.trim();
+            
+            try {
+                await navigator.clipboard.writeText(textToCopy);
+                showToast();
+            } catch (err) {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = textToCopy;
+                textArea.style.position = 'fixed';
+                textArea.style.left = '-999999px';
+                document.body.appendChild(textArea);
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    showToast();
+                } catch (err) {
+                    console.error('Failed to copy:', err);
+                    const errorMsg = currentLang === 'zh' 
+                        ? '複製失敗' 
+                        : 'Failed to copy address';
+                    showToast(errorMsg);
+                }
+                document.body.removeChild(textArea);
+            }
+        });
+    }
+    
+    // Heart button animation functionality
+    const heartBtn = document.getElementById('heartBtn');
+    
+    if (heartBtn && heroSection) {
+        heartBtn.addEventListener('click', (e) => {
+            // Create flying heart
+            const heart = document.createElement('span');
+            heart.className = 'flying-heart';
+            heart.textContent = '🩷';
+            
+            // Get button position relative to hero section
+            const buttonRect = heartBtn.getBoundingClientRect();
+            const heroRect = heroSection.getBoundingClientRect();
+            
+            // Calculate position relative to hero section
+            const startX = buttonRect.left - heroRect.left + buttonRect.width / 2;
+            const startY = buttonRect.top - heroRect.top + buttonRect.height / 2;
+            
+            heart.style.left = startX + 'px';
+            heart.style.top = startY + 'px';
+            
+            // Generate random direction for animation
+            const randomX = (Math.random() - 0.5) * 200; // -100 to 100px
+            const randomY = -50 - Math.random() * 100; // -50 to -150px (upward)
+            
+            heart.style.setProperty('--random-x', randomX + 'px');
+            heart.style.setProperty('--random-y', randomY + 'px');
+            
+            // Add to hero section
+            heroSection.appendChild(heart);
+            
+            // Remove after animation
+            setTimeout(() => {
+                if (heart.parentNode) {
+                    heart.parentNode.removeChild(heart);
+                }
+            }, 2000);
+        });
+    }
 });
 
