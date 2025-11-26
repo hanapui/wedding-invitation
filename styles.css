@@ -226,25 +226,25 @@ html, body {
 
 /* Time Section */
 .timeline-item {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    padding: 10px 0;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
     border-bottom: 1px solid #E0E0E0;
     text-align: center;
 }
 
 .timeline-item:last-child {
     border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
+
 .timeline-label {
-    font-weight: 600; /* semi-bold */
     font-size: 1em; /* 16px */
+    font-weight: 600; /* semi-bold */
     color: #444260;
-    margin: 0;
+    margin-bottom: 10px;
+    text-align: center;
 }
 
 .timeline-separator {
@@ -253,10 +253,11 @@ html, body {
 }
 
 .timeline-time {
-    font-weight: 400; /* regular */
     font-size: 1em; /* 16px */
+    font-weight: 400; /* regular */
     color: #6F6F6F;
-    margin: 0;
+    margin-bottom: 5px;
+    text-align: center;
 }
 
 /* Location Section */
@@ -346,10 +347,11 @@ html, body {
 }
 
 .venue-type {
-    text-align: center;
-    font-size: 0.75em; /* 12px */
+    font-size: 1em; /* 16px */
     font-weight: 400; /* regular */
-    color: #6A8995;
+    color: #6F6F6F;
+    margin-bottom: 5px;
+    text-align: center;
 }
 
 /* Transportation Section */
