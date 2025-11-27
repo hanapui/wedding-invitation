@@ -49,6 +49,12 @@ function updateLanguage() {
                 const newText = currentLang === 'zh' ? zhText : enText;
                 element.textContent = newText;
             }
+            // For elements that contain links, preserve the link structure
+            else if (element.querySelector('a')) {
+                const link = element.querySelector('a');
+                const newText = currentLang === 'zh' ? zhText : enText;
+                link.textContent = newText;
+            }
             // For elements that contain images (like menu items with vegan icons), 
             // we need to preserve the image
             else if (element.querySelector('img')) {

@@ -384,6 +384,44 @@ html, body {
     text-align: center;
 }
 
+.transport-item p.transport-subtext{
+    font-size: 1em !important; /* 16px */
+    font-weight: 400 !important; /* regular */
+    color: #6A8995 !important;
+    font-style: normal !important;
+    margin-left: 0 !important;
+    margin-bottom: 8px !important;
+    margin-top: 2px !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    text-align: center !important;
+    display: block !important;
+    line-height: 1.4 !important;
+}
+
+.transport-subtext a,
+#games .card-content a {
+    color: #444260;
+    text-decoration: underline;
+    transition: all 0.3s ease;
+}
+
+.transport-subtext a:hover,
+#games .card-content a:hover {
+    color: #6A8995;
+    opacity: 0.8;
+}
+.card-image {
+    width: calc(100% - 32px);
+    max-width: calc(100% - 32px);
+    height: auto;
+    border: 0;
+    border-radius: 12px;
+    margin: 16px auto;
+    display: block;
+    object-fit: contain;
+}
+
 /* Menu Section */
 .menu-category {
     margin-bottom: 25px;
